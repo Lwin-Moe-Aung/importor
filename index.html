@@ -1,0 +1,318 @@
+<meta charset="utf-8" />
+<title>Form Wizard - Ace Admin</title>
+
+<meta name="description" content="and Validation" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!--basic styles-->
+
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link href="assets/css/bootstrap-responsive.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+
+<!--[if IE 7]>
+  <link rel="stylesheet" href="assets/css/font-awesome-ie7.min.css" />
+<![endif]-->
+
+<!--page specific plugin styles-->
+
+<link rel="stylesheet" href="assets/css/chosen.css" />
+
+<!--fonts-->
+
+<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:400,300" />
+
+<!--ace styles-->
+
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link rel="stylesheet" href="assets/css/ace-responsive.min.css" />
+<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<style type="text/css">
+  	
+  	#inp{
+  		height: 40px;
+		line-height: 25px;
+		border-radius: 3px;
+		box-shadow: 0px 0px 5px #888888;
+		padding: 0px;
+  	}
+  	#inp_inp{
+  		background-color: #F3F3F3;
+  		padding:5px;
+  	}
+  	.sel{
+  		border-radius: 3px;
+  		width: 100%;
+
+  	}
+  	#lal{
+  		text-align: right;
+  		padding: 10px;
+  	}
+  	#inn{
+  		padding: 8px 10px;
+	    height: 40px;
+	    line-height: 25px;
+	    border-radius: 3px;
+	    font-weight: normal!important;
+	    font-size: 9pt;
+	    box-shadow: 0px 0px 5px #888888;
+	    align-items: center;
+  	}
+  /*	#showerror{
+  		visibility:hidden;
+  	}*/
+</style>
+
+<div class="widget-body" >
+	<div class="widget-main">
+		<div class="row-fluid">
+			<div id="fuelux-wizard" class="row-fluid hidden">
+				<ul class="wizard-steps">
+					<li data-target="#step1" class="active">
+						<span class="step">1</span>
+						<span class="title">Browse</span>
+					</li>
+
+					<li data-target="#step2">
+						<span class="step">2</span>
+						<span class="title">Match</span>
+					</li>
+
+					<li data-target="#step3">
+						<span class="step">3</span>
+						<span class="title">success</span>
+					</li>
+				</ul>
+			</div>
+			
+			<hr />
+			<div class="container" id="showerror" >
+				
+			</div>
+			
+
+			<div class="step-content row-fluid position-relative">
+				
+
+				<div class="step-pane active" id="step1" value="step1" style="padding-top: 40px;">
+					
+						<div class="row container">
+							<div class="col-sm-6">
+								<p style="text-align: center;font-weight: 700;
+								font-size: 10pt;padding-top: 11px;
+								padding-left: 214px;">File to import:</p>
+							</div>
+						    
+						    <div class="col-sm-6">
+						    	<form enctype="multipart/form-data" method="post" id="form1">
+							    	<label class="row" for="input_files" id="inn">
+									    
+									    <span class="col-sm-8" id="import_file_name" style="font-style: italic; font-family: "Open Sans", sans-serif ;" >No file selected</span>
+		      							
+		      							<span class="col-sm-3 col-md-3 col-xs-3" for = "input_files" style="background-color: #9b9ea3;color: #fff; border-radius: 3px;text-align: center;" >Choose file</span>
+									    
+								    	<!-- <label for="files">Select Image</label> -->
+		      							<input id="input_files" style="visibility:hidden;" type="file" name="fileToUpload" >
+							    	</label>
+						    		<p class="row" style="font-size: 9pt;">Only CSV, XLS, XLSX formats supported.</p>
+						    	</form>
+						    </div>
+						</div>	
+					
+				</div>
+
+				<div class="step-pane" id="step2" value="step2">
+					<div class="container">
+						<h3 style="margin: 0px;">Match your columns & import your records</h3>
+		                <div style="border-bottom: 1px dotted #000;padding-bottom: 10px;">Your file was successfully uploaded and inspected. Now match the columns in your file to the appropriate contacts fields in Judgify.</div>
+		                <div style="padding-top: 30px;">
+	                		<form enctype="multipart/form-data" id ="form2">
+		                		<div class="row-fluid" >
+		                			<div class="col-sm-6 col-md-6" id="inp">
+		                				<div class="col-sm-4" id="lal">
+		                					<label >Judge Email : </label>
+		                				</div>
+		                				<div class="col-sm-8" id="inp_inp">
+		                					<select id="judge_email" name="judge_email" class="sel"> 
+			                    			</select>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div class="clearfix"></div>
+		                		<div class="row-fluid" style="padding-top: 10px;" >
+		                			<div class="col-sm-6 col-md-6" id="inp">
+		                				<div class="col-sm-4" id="lal">
+		                					<label>First Name :</label>
+		                				</div>
+		                				<div class="col-sm-8" id="inp_inp">
+		                					<select id="firstname" name="firstname" class="sel"> 
+			                    			</select>
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div class="clearfix"></div>
+		                		<div class="row-fluid" style="padding-top: 10px;">
+		                			<div class="col-sm-6 col-md-6" id="inp">
+		                				<div class="col-sm-4" id="lal">
+		                					<label>Last Name :</label>
+		                				</div>
+		                				<div class="col-sm-8" id="inp_inp" >
+		                					<select id="lastname" name="lastname" class="sel" > 
+			                    			</select> 
+		                				</div>
+		                			</div>
+		                		</div>
+		                		<div class="clearfix"></div>
+		                		<input type="hidden" value="" name="import_processor_id" id="import_processor_id">
+                     			<input type="hidden" value="22" name="judging_roundid" id="judging_roundid">
+		                	</form>
+		                </div>
+		            </div>
+				</div>
+
+				<div class="step-pane" id="step3" value="step3">
+					<div class="container" id="st3">
+					</div>
+				</div>
+
+				
+			</div>
+			<div class="row-fluid wizard-actions">
+				<button class="btn btn-prev" id="prevv" style="visibility:hidden;">
+					<i class="icon-arrow-left"></i>
+					Prev
+				</button>
+				<button class="btn btn-basic" id="cancel">
+					<i class="icon-arrow-left"></i>
+					Cancel
+				</button>
+
+				<button name="submit" type="submit" value="Upload File" class="btn btn-success btn-next" data-last="Finish" id="btnWizardNext">
+					Next
+					<i class="icon-arrow-right icon-on-right"></i>
+				</button>
+			</div>
+			
+        </div>
+    </div>
+</div>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+window.jQuery || document.write("<script src='assets/js/jquery-1.9.1.min.js'>"+"<"+"/script>");
+</script>
+<script src="assets/js/bootstrap.min.js"></script>
+
+<!--page specific plugin scripts-->
+
+<script src="assets/js/fuelux/fuelux.wizard.min.js"></script>
+<script src="assets/js/jquery.validate.min.js"></script>
+<script src="assets/js/additional-methods.min.js"></script>
+<script src="assets/js/bootbox.min.js"></script>
+<script src="assets/js/jquery.maskedinput.min.js"></script>
+<script src="assets/js/chosen.jquery.min.js"></script>
+
+<!--ace scripts-->
+
+<script src="assets/js/ace-elements.min.js"></script>
+<script src="assets/js/ace.min.js"></script>
+
+<!--inline scripts related to this page-->
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#input_files").change(function() {
+			
+		  	filename = this.files[0].name
+							
+		  	$('#import_file_name').text(filename);
+		})
+		$('#cancel').on('click',function(){
+			location.reload();
+		})
+	});
+
+	$('#fuelux-wizard').ace_wizard().on('change' , function(e, info){
+
+		if(info.step == 1 && info.direction=="next"){
+			var warning = "alert alert-warning alert-dismissible fade in";
+			var close = "close";
+			var alert = "alert";
+			var shat = "#";
+			
+			var size2 = $('#input_files')[0].files[0].size;
+			if (size2 > 5000000) {
+				//console.log("hello file size is too big");
+				
+				//$('#showerror').css({visibility:"show"});
+				$('#showerror').html('<div class="'+warning+'"><a href="'+shat+'" class="'+close+'"data-dismiss="'+alert+'" aria-label="'+close+'">&times;</a><strong>file size is too big</strong></div>');
+				
+				return false;
+			}else{
+				var formData = new FormData();
+				formData.append('fileToUpload', $('#input_files')[0].files[0]);
+				$.ajax({
+				url: "import.php",
+				method: "post",
+				data : formData,
+				contentType: false,
+				processData: false,
+				success:function(data){
+					$('#showerror').html("");
+					var data22 = JSON.parse(data);
+					$.each( data22[0], function( key, value ) {
+
+						HTML_text= '<option value="' + key + '">';
+						HTML_text += key;
+						HTML_text += "</option>";
+
+	    				$('#judge_email').append(HTML_text);
+	    				$('#firstname').append(HTML_text);
+	    				$('#lastname').append(HTML_text);
+						});
+					$('#import_processor_id').val(data22[1]);
+					},
+				error: function() {
+					$( "#prevv" ).click();
+					$('#showerror').html('<div class="'+warning+'"><a href="'+shat+'" class="'+close+'"data-dismiss="'+alert+'" aria-label="'+close+'">&times;</a><strong>Only CSV, XLS, XLSX formats supported.</strong></div>');
+					
+					}
+				})
+			}
+			
+		}else if(info.step == 2 && info.direction=="next"){
+			$('#cancel').hide();
+			$.ajax({
+           	type: "POST",
+           	url: "import.php",
+           	data: $("#form2").serialize(), // serializes the form's elements.
+           	success: function(data)
+           	{	
+       			var data22 = JSON.parse(data);
+       			var warning = "alert alert-warning";
+       			var danger = "alert alert-danger";
+       			var success = "alert alert-info";
+       			if(typeof(data22['two']) != "undefined" && data22['two'] !== null) {
+       				$('#st3').append('<div class="'+success+'"><b>row "'+data22['two']+'" successfully saved</b></div>');
+				}
+       			if(typeof(data22['four']) != "undefined" && data22['four'] !== null) {
+				   	$('#st3').append('<div class="'+warning+'"><b>row "'+data22['four']+'" already exist</b></div>');
+				}
+				if(typeof(data22['three']) != "undefined" && data22['four'] !== null) {
+				   	$('#st3').append('<div class="'+danger+'"><b>row "'+data22['three']+'" validation error</b></div>');
+				}
+           	}
+           	})			
+		}
+	}).on('finished', function(e) {
+		location.reload();
+	});
+
+</script>
+
